@@ -7,21 +7,36 @@ const fs = require('fs');
 const questions = () =>
     inquirer.prompt([
         {
-            type: ,
-            name: ,
-            message: ,
+            type: 'input',
+            name: 'name',
+            message: 'what is the title of this application?',
         },
         {
-            type: ,
-            name: ,
-            message: ,
+            type: 'input',
+            name: 'link',
+            message: 'Link to deployed app',
         },
         {
-            type: ,
-            name: ,
-            message: ,
+            type: 'input',
+            name: 'tech',
+            message: 'list of tech used',
         },
-    ])
+        {
+            type: 'input',
+            name: 'describe',
+            message: 'description of your apppliation',
+        },
+        {
+            type: 'input',
+            name: 'license',
+            message: 'include license (usually MIT)',
+        },
+        {
+            type: 'input',
+            name: 'contact',
+            message: 'your contact info',
+        },
+    ]) 
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
