@@ -1,5 +1,5 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
-const badges = require (`./licenseBadges`)
+const badges = require (`./license.js`)
 function generateMarkdown(data) {
   return `# ${data.title}
     

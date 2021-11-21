@@ -11,37 +11,37 @@ promptUser = () => {
     return inquirer.prompt([
         {
         type: 'input',
-        message: 'Title?',
+        message: 'Title',
         name: 'title',
         },
         {
         type: 'input',
-        message: 'Description?',
+        message: 'Description',
         name: 'description',
         },
         {
         type: 'input',
-        message: 'Installation?',
+        message: 'Installation',
         name: 'installation',
         },
         {
         type: 'input',
-        message: 'Usage?',
+        message: 'Usage',
         name: 'usage',
         },
         {
         type: 'input',
-        message: 'Contribution?',
+        message: 'Contribution',
         name: 'contribution',
         },
         {
         type: 'input',
-        message: 'Testing?',
+        message: 'Testing',
         name: 'testing',
         },
         {
         type: 'list',
-        message: 'License?',
+        message: 'License',
         name: 'licensing',
         choices: [
             "Apache",
@@ -56,12 +56,12 @@ promptUser = () => {
         },
         {
         type: 'input',
-        message: 'Your Github username?',
+        message: 'Github username',
         name: 'github',
         },
         {
         type: 'input',
-        message: 'Your email for additional questions?',
+        message: 'Email',
         name: 'email',
         },
     ])

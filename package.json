@@ -6,9 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kpham000/README-generator.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kpham000/README-generator/issues"
+  },
+  "homepage": "https://github.com/kpham000/README-generator#readme",
   "dependencies": {
-    "inquirer": "^6.3.1"
+    "inquirer": "^6.5.2",
+    "util": "^0.12.4"
   }
 }
