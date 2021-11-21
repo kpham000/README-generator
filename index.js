@@ -1,60 +1,89 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require('fs');
+const generateMarkdown = require('./generateMarkdown')
+const util = require("util");
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // TODO: Create an array of questions for user input
 // const questions = [];
-const questions = () =>
-    inquirer.prompt([
+promptUser = () => {
+    return inquirer.prompt([
         {
-            type: 'input',
-            name: 'name',
-            message: 'what is the title of this application?',
+        type: 'input',
+        message: 'Title?',
+        name: 'title',
         },
         {
-            type: 'input',
-            name: 'link',
-            message: 'Link to deployed app',
+        type: 'input',
+        message: 'Description?',
+        name: 'description',
         },
         {
-            type: 'input',
-            name: 'tech',
-            message: 'list of tech used',
+        type: 'input',
+        message: 'Installation?',
+        name: 'installation',
         },
         {
-            type: 'input',
-            name: 'describe',
-            message: 'description of your apppliation',
+        type: 'input',
+        message: 'Usage?',
+        name: 'usage',
         },
         {
-            type: 'input',
-            name: 'license',
-            message: 'include license (usually MIT)',
+        type: 'input',
+        message: 'Contribution?',
+        name: 'contribution',
         },
         {
-            type: 'input',
-            name: 'contact',
-            message: 'your contact info',
+        type: 'input',
+        message: 'Testing?',
+        name: 'testing',
         },
-    ]) 
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+        {
+        type: 'list',
+        message: 'License?',
+        name: 'licensing',
+        choices: [
+            "Apache",
+            "BSD",
+            "Eclipe",
+            "GNU",
+            "IBM",
+            "MIT",
+            "Mozilla",
+            "Zlib"
+            ]
+        },
+        {
+        type: 'input',
+        message: 'Your Github username?',
+        name: 'github',
+        },
+        {
+        type: 'input',
+        message: 'Your email for additional questions?',
+        name: 'email',
+        },
+    ])
 }
 
+// TODO: Create a function to write README file
+// function writeToFile(fileName, data) {}
+
 // TODO: Create a function to initialize app
-function init() {}
-  
+async function init() {
+    try {
+        const inputs = await promptUser();
+        const generateContent = generateMarkdown(inputs);
+        await writeFileAsync('README.md', generateContent);
+        console.log('logged to README.md');
+    }   
+    
+    catch(err) { 
+        console.log(err);
+    }
+}
+
 // Function call to initialize app
-const init = () => {
-    const init= inquirer.prompt({
-        type: "input",
-        message: "generate the README!",
-        name:"msg"
-    })
-    fs.appendFile ("inquirer.prompt",`${data.msg}`)
-    console.log("done!")
-};
-  
 init();
 
